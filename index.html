@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affordable Home Repair and Roofing Systems LLC</title>
+  <meta name="description" content="Affordable roofing and home repair services in Southeast Missouri. Roof repair, roof replacement, electrical, HVAC, and general home repairs." />
+
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1d4ed8;   /* Deep blue */
+      --primary-dark: #0f172a;
+      --accent: #facc15;    /* Warm yellow */
+      --bg: #0b1120;
+      --light: #f9fafb;
+      --muted: #9ca3af;
+      --card-bg: #020617;
+      --border: #1f2937;
+      --danger: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* NEW: logo image styles */
+    .logo-img {
+      height: 42px;
+      width: auto;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 0.75rem;
+      background: radial-gradient(circle at 20% 0, #38bdf8, #1d4ed8 45%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+    }
+
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #e5e7eb;
+      stroke-width: 1.6;
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #38bdf8, #fbbf24);
+      border-radius: 999px;
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--light);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-phone {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-phone strong {
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #1d4ed8, #0ea5e9);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.7);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--light);
+      background: rgba(15, 23, 42, 0.98);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--light);
+      margin: 4px 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .nav-open .nav-toggle span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-bottom: 0.85rem;
+    }
+
+    .nav-mobile a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--light);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #7dd3fc;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.15rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      margin-bottom: 0.75rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #facc15;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw + 1.6rem, 3.15rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(to right, #38bdf8, #facc15);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* NEW: big logo in hero */
+    .hero-logo {
+      max-width: 260px;
+      width: 70%;
+      margin: 0.5rem 0 1.5rem;
+      display: block;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      max-width: 36rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0.95) 40%, #020617 100%);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.95);
+      padding: 1.5rem 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-main {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.92);
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      border-top: 1px dashed rgba(148, 163, 184, 0.3);
+      padding-top: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--light);
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 1.2rem;
+      top: 1.2rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(248, 250, 252, 0.35);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.75rem 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 22rem;
+    }
+
+    /* Services */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.95) 40%, #020617 100%);
+      border-radius: 1.1rem;
+      padding: 1.1rem 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.78rem;
+      color: #d1d5db;
+    }
+
+    .card ul li {
+      margin-bottom: 0.2rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 0.3rem;
+    }
+
+    /* About & why us */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 1.9rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .body-text {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight-box {
+      background: radial-gradient(circle at top left, rgba(250, 204, 21, 0.18), rgba(15, 23, 42, 0.96) 45%, #020617 100%);
+      border-radius: 1.1rem;
+      border: 1px solid rgba(248, 250, 252, 0.15);
+      padding: 1rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .highlight-box strong {
+      color: var(--accent);
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 0.6rem;
+      font-size: 0.86rem;
+      color: #e5e7eb;
+    }
+
+    .list-check li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .list-check span {
+      display: inline-flex;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.7);
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #22c55e;
+      margin-top: 2px;
+    }
+
+    /* Service area & projects */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill-soft {
+      font-size: 0.75rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .project-card {
+      border-radius: 1rem;
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      padding: 0.7rem 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .project-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      color: var(--light);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .testimonial {
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.2), rgba(15, 23, 42, 0.96) 50%);
+      padding: 1rem 0.9rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .testimonial strong {
+      display: block;
+      color: var(--light);
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+    }
+
+    .stars {
+      color: #facc15;
+      font-size: 0.75rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 1.8rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      padding: 0.55rem 0.6rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .contact-sidebar {
+      border-radius: 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.16), rgba(15, 23, 42, 0.96) 45%, #020617 100%);
+      padding: 1.1rem 1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .contact-sidebar h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      padding: 1.25rem 0 1.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* NEW: Photo gallery styles */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.96);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item figcaption {
+      padding: 0.6rem 0.7rem 0.7rem;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-column,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonial-grid,
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-mobile {
+        display: flex;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .testimonial-grid,
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="logo-group">
+          <!-- Logo image in header -->
+          <img src="logo.png"
+               alt="Affordable Home Repair and Roofing Systems LLC"
+               class="logo-img">
+        </div>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-cta">
+          <div class="nav-phone">
+            Call or text:<br />
+            <strong><a href="tel:15732170209">(573) 217-0209</a></strong>
+          </div>
+          <a href="#contact" class="btn btn-primary">Request a quote</a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="nav-mobile" id="navMobile">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:15732170209">📞 (573) 217-0209</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Southeast Missouri • Roofing & Repairs
+            </div>
+
+            <!-- Big logo in hero -->
+            <img src="logo.png"
+                 alt="Affordable Home Repair and Roofing Systems LLC"
+                 class="hero-logo">
+
+            <h1>
+              Quality roofing & home repair<br />
+              <span>at a price you can afford.</span>
+            </h1>
+            <p class="hero-subtitle">
+              AFFORDABLE HOME REPAIR AND ROOFING SYSTEMS LLC provides reliable roofing,
+              electrical, HVAC, and home repair services for homeowners and small businesses
+              across Southeast Missouri. One local crew, start-to-finish.
+            </p>
+
+            <div class="hero-cta">
+              <a href="tel:15732170209" class="btn btn-primary">
+                📞 Call now for fast service
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                ✏️ Get a free estimate
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="dot"></span> Licensed & insured contractor</span>
+              <span><span class="dot"></span> Roof leaks, full replacements & emergency calls</span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Business highlight card">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Local • Reliable • Honest
+            </div>
+
+            <div class="hero-tagline">Your one-call contractor</div>
+            <div class="hero-card-main">
+              Roofing + repairs done right the first time.
+            </div>
+            <div class="hero-card-sub">
+              Shingle roofs • Metal roofs • Decks & carpentry • Electrical •
+              HVAC / refrigeration service for small businesses and markets.
+            </div>
+
+            <div class="hero-pills">
+              <span class="pill">Roof repair & replacement</span>
+              <span class="pill">Emergency leak response</span>
+              <span class="pill">Commercial refrigeration</span>
+              <span class="pill">Electrical troubleshooting</span>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>Same-week</strong>
+                Scheduling available on many jobs.
+              </div>
+              <div class="stat">
+                <strong>Free</strong>
+                Estimates in most local areas.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="tag">Services</div>
+            <h2 class="section-title">Roofing & home services</h2>
+          </div>
+          <p class="section-subtitle">
+            From small repairs to full tear-offs and replacements, AFFORDABLE HOME
+            REPAIR AND ROOFING SYSTEMS LLC keeps your home or business dry, safe, and running right.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="card">
+            <h3>Roof Repair & Replacement</h3>
+            <p>
+              Stop leaks, storm damage, and worn-out shingles before they ruin your home.
+            </p>
+            <ul>
+              <li>Shingle & metal roof repair</li>
+              <li>Partial or full roof replacement</li>
+              <li>Decking repair / replacement</li>
+              <li>Flashing, vents & roof penetrations</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Home Repair & Carpentry</h3>
+            <p>
+              Practical fixes for real-world problems around your home or rental.
+            </p>
+            <ul>
+              <li>Deck & porch repair / rebuild</li>
+              <li>Framing & trim carpentry</li>
+              <li>Doors, windows & siding fixes</li>
+              <li>General home maintenance</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Electrical Services</h3>
+            <p>
+              Residential and light commercial electrical work done safely and cleanly.
+            </p>
+            <ul>
+              <li>Lighting & ceiling fan installs</li>
+              <li>Circuits, outlets & switches</li>
+              <li>Panel & breaker upgrades</li>
+              <li>Troubleshooting & repairs</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>HVAC & Refrigeration</h3>
+            <p>
+              Keep your coolers, freezers, and comfort systems running when it matters most.
+            </p>
+            <ul>
+              <li>Commercial refrigeration repairs</li>
+              <li>Refrigerant charging & leak checks</li>
+              <li>Exhaust fans & makeup air</li>
+              <li>Light HVAC maintenance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Why Us -->
+    <section id="about">
+      <div class="container">
+        <div class="two-column">
+          <div>
+            <div class="tag">About the company</div>
+            <h2 class="section-title">Local, hands-on, and owner-operated</h2>
+            <p class="body-text">
+              AFFORDABLE HOME REPAIR AND ROOFING SYSTEMS LLC is a small, owner-operated
+              contracting business based in Southeast Missouri. When you call, you’re
+              talking directly to the person who will look at your project, price it,
+              and make sure it’s finished the right way.
+            </p>
+            <p class="body-text">
+              You won’t get 5 different crews showing up, and you won’t get surprised
+              with a bill that’s nothing like your estimate. You get clear communication,
+              straight numbers, and work you can be proud to show your neighbors.
+            </p>
+
+            <ul class="list-check">
+              <li><span>✓</span> Honest, line-by-line estimates before work begins</li>
+              <li><span>✓</span> Respect for your home, yard, and neighbors</li>
+              <li><span>✓</span> Cleanup at the end of each day on multi-day jobs</li>
+              <li><span>✓</span> We treat every project like it’s our own home</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="tag">Why choose us</div>
+            <div class="highlight-box">
+              <strong>We solve problems, not just sell roofs.</strong><br /><br />
+              If you have a leak, bad decking, failing electrical, or an aging HVAC or
+              refrigeration system, you need someone who will track down the real cause
+              and fix it — not just cover it up until next storm season.
+              <br /><br />
+              We figure out what’s really going on, explain your options in plain English,
+              and then get it done at a price that makes sense.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Area & Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="tag">Service area & recent work</div>
+            <h2 class="section-title">Proudly serving Southeast Missouri</h2>
+          </div>
+          <p class="section-subtitle">
+            Based near Malden, Missouri and working in the surrounding communities.
+            If you’re not sure you’re in range, just call or text and ask.
+          </p>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 style="font-size:1rem; margin-bottom:0.3rem;">Service area</h3>
+            <p class="body-text">
+              AFFORDABLE HOME REPAIR AND ROOFING SYSTEMS LLC regularly works in:
+            </p>
+            <div class="pill-row">
+              <span class="pill-soft">Malden, MO</span>
+              <span class="pill-soft">Kennett, MO</span>
+              <span class="pill-soft">Doniphan, MO</span>
+              <span class="pill-soft">Dexter, MO</span>
+              <span class="pill-soft">Campbell & surrounding areas</span>
+            </div>
+            <p class="body-text" style="margin-top:0.6rem;">
+              Have a larger project a little farther out? Reach out with your address
+              and a quick description of the job — we’ll let you know if we can make it work.
+            </p>
+          </div>
+
+          <div>
+            <h3 style="font-size:1rem; margin-bottom:0.3rem;">Sample projects</h3>
+            <p class="body-text">
+              Swap these placeholders with photos of your real jobs:
+            </p>
+            <div class="project-grid">
+              <div class="project-card">
+                <div class="project-label">Roofing</div>
+                <div class="project-title">Inn roof repair & overlay</div>
+                <div>Full tear-off on damaged decking, new sheathing, and fresh architectural shingles.</div>
+              </div>
+              <div class="project-card">
+                <div class="project-label">Commercial</div>
+                <div class="project-title">Market coolers & exhaust</div>
+                <div>Refrigeration repair, evaporator fans, refrigerant charge, and exhaust improvements.</div>
+              </div>
+              <div class="project-card">
+                <div class="project-label">Home repair</div>
+                <div class="project-title">Deck & entry rebuild</div>
+                <div>Safe steps, solid framing, and new railing for a clean, sturdy entrance.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Photo Gallery -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="tag">Photo gallery</div>
+            <h2 class="section-title">Real job site photos</h2>
+          </div>
+          <p class="section-subtitle">
+            Actual work completed by Affordable Home Repair and Roofing Systems LLC in Southeast Missouri.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!--
+            IMPORTANT:
+            Change these filenames (photo1.jpg, photo2.jpg, etc.)
+            to match the real image filenames in your repo.
+            All of these should sit in the SAME folder as index.html.
+          -->
+
+          <figure class="gallery-item">
+            <img src="photo1.jpg" alt="Roof repair project">
+            <figcaption>Roof repair and overlay after storm damage.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="photo2.jpg" alt="Full roof replacement">
+            <figcaption>Full roof replacement with new decking and shingles.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="photo3.jpg" alt="Deck rebuild">
+            <figcaption>Deck and entry rebuild for a safer, cleaner entrance.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="photo4.jpg" alt="Commercial refrigeration work">
+            <figcaption>Commercial refrigeration and cooler repairs for a local market.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="photo5.jpg" alt="Electrical repair">
+            <figcaption>Electrical troubleshooting and panel work.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="photo6.jpg" alt="HVAC and exhaust work">
+            <figcaption>HVAC and exhaust fan work to keep systems running right.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="tag">Testimonials</div>
+            <h2 class="section-title">What customers can say</h2>
+          </div>
+          <p class="section-subtitle">
+            Replace these sample quotes with real reviews from your Facebook page,
+            Google listing, or handwritten thank-you notes.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            “Showed up when he said he would, found the leak fast, and patched it up
+            before the next round of storms. No more buckets in the living room.”
+            <strong>— Homeowner, Malden MO</strong>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            “Got our coolers back online and fixed the exhaust fan wiring in one visit.
+            Straightforward pricing and no surprise add-ons.”
+            <strong>— Small market owner</strong>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            “Helped us plan the job, walked us through the estimate, and kept us updated
+            the whole time. Clean job site and solid work.”
+            <strong>— Landlord & property owner</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="tag">Get a quote</div>
+            <h2 class="section-title">Tell us what you need fixed</h2>
+          </div>
+          <p class="section-subtitle">
+            A short description and a couple of photos (roof, damage, panel, unit, etc.)
+            can save a lot of time on the first call.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <!-- NOTE: Set the 'action' to your form handler or service (Formspree, Getform, etc.) -->
+            <form action="#" method="post">
+              <div>
+                <label for="name">Name *</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div>
+                <label for="phone">Phone *</label>
+                <input id="phone" name="phone" type="tel" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" />
+              </div>
+              <div>
+                <label for="city">City / Town</label>
+                <input id="city" name="city" type="text" />
+              </div>
+              <div class="form-full">
+                <label for="service">What do you need help with?</label>
+                <select id="service" name="service">
+                  <option value="">Select an option</option>
+                  <option value="roof-repair">Roof leak / roof repair</option>
+                  <option value="roof-replacement">Full roof replacement</option>
+                  <option value="home-repair">Home repair / carpentry</option>
+                  <option value="electrical">Electrical issue</option>
+                  <option value="hvac-refrigeration">HVAC / refrigeration</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="form-full">
+                <label for="message">Describe the problem *</label>
+                <textarea id="message" name="message" required placeholder="Example: Leak around the chimney during heavy rain, missing shingles on back side of roof, breaker that keeps tripping, cooler not holding temp, etc."></textarea>
+              </div>
+              <div class="form-full" style="display:flex; justify-content:flex-start; margin-top:0.35rem;">
+                <button type="submit" class="btn btn-primary">
+                  ✉️ Send message
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="contact-sidebar">
+            <h3>Call, text, or message</h3>
+            <p>
+              If you’d rather talk it through, just call or text. Leaving a voicemail
+              with your name, address, and what’s going on helps us call you back faster.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Phone / Text</span>
+                <a href="tel:15732170209">(573) 217-0209</a>
+              </li>
+              <li>
+                <span class="contact-label">Service hours</span>
+                Monday – Saturday • Call for emergency availability
+              </li>
+              <li>
+                <span class="contact-label">Service area</span>
+                Malden, Kennett, Doniphan, Dexter, and nearby communities in Southeast Missouri.
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          © <span id="year"></span>
+          AFFORDABLE HOME REPAIR AND ROOFING SYSTEMS LLC. All rights reserved.
+        </div>
+        <div>
+          <span>Licensed & insured contractor</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const header = document.querySelector('header');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        header.classList.toggle('nav-open');
+      });
+    }
+
+    // Close mobile nav when clicking a link
+    const mobileLinks = document.querySelectorAll('#navMobile a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        header.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
