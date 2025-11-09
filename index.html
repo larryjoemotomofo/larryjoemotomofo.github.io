@@ -1302,26 +1302,31 @@ style>
   </footer>
 
   <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const header = document.querySelector('header');
+    script>
+  let backdrop = null;
 
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !expanded);
-        header.classList.toggle('nav-open');
-      });
+  function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+
+    const isOpen = nav.classList.contains('nav-open');
+
+    if (isOpen) {
+      // Close menu
+      nav.classList.remove('nav-open');
+      if (backdrop) {
+        backdrop.remove();
+        backdrop = null;
+      }
+    } else {
+      // Open menu
+      nav.classList.add('nav-open');
+
+      // Create a click-to-close backdrop behind the menu
+      backdrop = document.createElement('div');
+      backdrop.className = 'menu-backdrop';
+      backdrop.onclick = toggleMenu;
+      document.body.appendChild(backdrop);
     }
-
-    const mobileLinks = document.querySelectorAll('#navMobile a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        header.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  }
 </body>
 </html>
