@@ -11,58 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #1d4ed8;
-      --primary-dark: #0f172a;
-      --accent: #facc15;
-      --bg: #0b1120;
-      --light: #f9fafb;
-      --muted: #9ca3af;
-      --card-bg: #020617;
-      --border: #1f2937;
-      --danger: #dc2626;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
-      color: var(--light);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(15, 23, 42, 0.92);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-    }
-
-    .logo-group {
+   
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -660,105 +609,96 @@
     footer {
       border-top: 1px solid rgba(15, 23, 42, 0.9);
       padding: 1.25rem 0 1.7rem;
-      font-size: 0.78rem;
-      color: var(--muted);
+style>
+  /* Menu button */
+  .menu-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 2000;
+    padding: 8px 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Base nav styles */
+  #main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 260px;
+    background: #222;
+    color: #fff;
+    padding: 60px 16px 16px;
+    box-sizing: border-box;
+    z-index: 1500;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  #main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #main-nav li {
+    margin-bottom: 12px;
+  }
+
+  #main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  #main-nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* When menu is open */
+  #main-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  /* Optional: dark overlay behind menu when open */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1400;
+  }
+
+  @media (min-width: 768px) {
+    /* On bigger screens you can show a normal horizontal menu if you want */
+    .menu-toggle {
+      display: none;
     }
 
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+    #main-nav {
+      position: static;
+      height: auto;
+      width: auto;
+      max-width: none;
+      transform: none;
+      background: transparent;
+      padding: 0;
+      display: inline-block;
     }
 
-    .footer-row span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
+    #main-nav a {
+      color: inherit;
+      margin-right: 16px;
     }
+  }
+</style>
 
-    /* GALLERY */
-    .gallery-job-title {
-      font-size: 1rem;
-      margin: 1.5rem 0 0.5rem;
-      color: #e5e7eb;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.96);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
-      font-size: 0.8rem;
-      color: #e5e7eb;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-item figcaption {
-      padding: 0.6rem 0.7rem 0.7rem;
-      font-size: 0.8rem;
-      color: #cbd5f5;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .two-column,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero { padding-top: 2.4rem; }
-    }
-
-    @media (max-width: 800px) {
-      .service-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .testimonial-grid,
-      .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav-links,
-      .nav-cta { display: none; }
-      .nav-toggle { display: block; }
-      .nav-mobile { display: flex; }
-      .hero-meta {
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-      .hero h1 { font-size: 2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .service-grid,
-      .testimonial-grid,
-      .project-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      form {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
   </style>
 </head>
 <body>
