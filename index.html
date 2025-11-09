@@ -1,4 +1,4 @@
-<html lang="en">
+2<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -770,14 +770,28 @@
           <img src="logo.png" alt="Affordable Home Repair and Roofing Systems LLC" class="logo-img">
         </div>
 
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <<header class="site-header">
+  <div class="brand">
+    <h1>Affordable Home Repair & Roofing Systems LLC</h1>
+    <p>Serving Southeast Missouri • Roofing • Repairs • Electrical • More</p>
+  </div>
+
+  <!-- Menu button (hamburger) -->
+  <button class="menu-toggle" onclick="toggleMenu()">
+    ☰ Menu
+  </button>
+
+  <!-- The sliding menu -->
+  <nav id="main-nav" class="nav-closed">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Job Gallery</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
         <div class="nav-cta">
           <div class="nav-phone">
